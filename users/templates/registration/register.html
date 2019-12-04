@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% if registered %}
+        <h2>Rango says .... Thank you for registering here</h2>
+    {% else %}
+        <h1 class="display-4">Register Here</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{profile_form.as_p}}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    {% endif %}
+</body>
+</html>
