@@ -2,7 +2,6 @@ from django.db import models
 from django.conf import settings
 
 # Create your models here.
-
 class Faculty(models.Model):
     name = models.CharField(max_length = 100)
 
@@ -24,9 +23,11 @@ class Level(models.Model):
 
 class Semester(models.Model):
     name = models.CharField(max_length = 100)
+    active = models.BooleanField()
 
     def __str__(self):
         return self.name
+
 
 class Courses(models.Model):
     name = models.CharField(max_length = 100)

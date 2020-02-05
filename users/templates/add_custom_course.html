@@ -10,7 +10,7 @@
     <!------ Include the above in your HEAD tag ---------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.4.95/css/materialdesignicons.css">
     
-    <title>Dashboard - Lasu Exam Checker</title>
+    <title>Courses List - Lasu Exam Checker</title>
 </head>
 <body>
     <style>
@@ -231,7 +231,7 @@
 								<div class="profile-content">
 									<div class="profile-name">Welcome : {{request.user.matric_number}}</div>
 									<div class="profile-designation">Electronics and computer engineering</div>
-									<p class="profile-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
+									<p class="profile-description"> Student Dashboard for Viewing  and Registering Courses.</p>
 									<ul class="profile-info-list">
 										<a href="{% url 'courses:user_courses' %}" class="profile-info-list-item"><i class="mdi mdi-eye"></i>My Courses</a>
 										<a href="{% url 'courses:register_courses' %}" class="profile-info-list-item"><i class="mdi mdi-bookmark-check"></i>Register Courses</a>
@@ -247,33 +247,30 @@
 					<div class="col-md-8 grid-margin stretch-card">
 						<div class="card">
 							<div class="card-body">
-								<h3 class="card-title font-weight-bold">Student Profile</h3>
-								<hr>
-								<p class="card-description">User Information</p>
-								<ul class="about">
-									<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Matric:</span><span class="about-item-detail">{{request.user.matric_number}}</span><a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">username:</span><span class="about-item-detail">{{request.user.first_name}} {{request.user.last_name}}</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">CGPA:</span><span class="about-item-detail"> 3.75 </span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail">**********</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-format-align-left icon-sm "></i><span class="about-item-name">Bio:</span><span class="about-item-detail">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto totam, nemo quidem delectus dolores vero porro inventore perferendis minus perspiciatis.</span> <a href="" class="about-item-edit">Edit</a></li>
-									
-                      
+								<h3 class="text-center card-title font-weight-bold mb-3"><ul>My Registered Courses</ul> </h3>
+                                <div class="container-fluid">
+                                    <div class="title">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                                            <div class="table-responsive">
+                                                <h2>_____________________________________</h2>
 
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-
-
-			</div>
-			<!-- content-wrapper ends -->
-			<!-- partial:partials/_footer.html -->
-
-			<?php include'includes/admin_footer.php' ?>
+                                                <form action="" method="POST">
+                                                    <div class="form-control">
+                                                        <div class="col">
+                                                          <input type="text" class="form-control" placeholder="First name">
+                                                        </div>
+                                                        <button type="submit">Submit</button>
+                                                      </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 			<!-- partial -->
 		</div>
 		<!-- main-panel ends -->

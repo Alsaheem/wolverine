@@ -4,19 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <title>Register - Lasu Exam Checker</title>
 </head>
 <body>
-    {% if registered %}
-        <h2>Rango says .... Thank you for registering here</h2>
-    {% else %}
-        <h1 class="display-4">Register Here</h1>
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{user_form.as_p}}
-            {{profile_form.as_p}}
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    {% endif %}
+    <nav class="navbar navbar-light bg-dark  navbar-expand-md">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="https://i.ibb.co/jgVJ9kd/LASU-logo.gif" class='bg-white' height="30" alt="image">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav3" aria-controls="navbarNav3" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav3">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="{% url 'users:home' %}">Home </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="{% url 'users:login' %}">Logout</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="{% url 'users:login' %}">Login</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="{% url 'users:register' %}">Register</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link text-white" href="{% url 'users:about' %}">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+
+<!-- no additional media querie or css is required -->
+<div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-6">
+                <div class="card">
+                    <img class="text-center justify-content-center " src="https://i.ibb.co/jgVJ9kd/LASU-logo.gif" alt="" height='150px' width='200px' style="margin-left: 150px;">
+                    
+                    <div class="card-header">
+                        <h2 class="text-center"><u>Register</u>  </h2>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {% for field in user_form %}
+                                {{ field.errors }}
+                                <div class="form-control">
+                                    {{ field.label_tag }} : {{ field }}
+                                </div>
+                                {% endfor %}
+                                {% for field in profile_form %}
+                                {{ field.errors }}
+                                <div class="form-control">
+                                    {{ field.label_tag }} : {{ field }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <button class="btn btn-primary" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+

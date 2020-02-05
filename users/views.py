@@ -2,17 +2,19 @@ from django.shortcuts import render,redirect,reverse
 from django.http import HttpResponseRedirect,HttpResponse
 from .models import User,UserProfile
 from django.contrib.auth import authenticate, login, logout
-from .forms import UserForm,UserProfileForm
+from .forms import UserForm,UserProfileForm,LoginForm
 from django.views.generic import View,TemplateView
 from django.contrib import messages 
+from django.urls import path, include
+
+# import face_recognition
+# import cv2 
 
 class DashboardView(TemplateView):
     template_name = 'dashboard.html'
 
-# get user courses
-def UserProfileView(request):
-    pass
-
+class HomeView(TemplateView):
+    template_name='home.html'
 
 # register user
 def register(request):
@@ -33,7 +35,8 @@ def register(request):
         else:
             print(user_form.errors,profile_form.errors)
     return render(request,'registration/register.html',{'user_form':user_form,'profile_form':profile_form,'registered':Registered})
-    
+ 
 
-
+def about(request):
+    return render(request,"about.html",{})
 

@@ -78,6 +78,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    head_shot = models.ImageField(upload_to='profile_images',blank=True)
     faculty = models.ForeignKey(Faculty,on_delete=models.CASCADE)
     department = models.ForeignKey(Department,on_delete = models.CASCADE)
     # user_image = models.ImageField(upload_to='')
@@ -86,3 +87,9 @@ class UserProfile(models.Model):
     def __str__(self):
         return '{}\s profile'.format(self.user.matric_number)
 
+
+def create_profile(sender,**kwargs):
+    if kwargs['created']:
+        user_profile=UserProfile.objects.get_or_create(user=kwargs['instance'])
+
+post_save.connect(create_profile,sender=User)

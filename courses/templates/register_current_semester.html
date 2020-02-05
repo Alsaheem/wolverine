@@ -10,7 +10,7 @@
     <!------ Include the above in your HEAD tag ---------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.4.95/css/materialdesignicons.css">
     
-    <title>Dashboard - Lasu Exam Checker</title>
+    <title>Register Courses - Lasu Exam Checker</title>
 </head>
 <body>
     <style>
@@ -247,33 +247,47 @@
 					<div class="col-md-8 grid-margin stretch-card">
 						<div class="card">
 							<div class="card-body">
-								<h3 class="card-title font-weight-bold">Student Profile</h3>
-								<hr>
-								<p class="card-description">User Information</p>
-								<ul class="about">
-									<li class="about-items"><i class="mdi mdi-account icon-sm "></i><span class="about-item-name">Matric:</span><span class="about-item-detail">{{request.user.matric_number}}</span><a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">username:</span><span class="about-item-detail">{{request.user.first_name}} {{request.user.last_name}}</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-mail-ru icon-sm "></i><span class="about-item-name">CGPA:</span><span class="about-item-detail"> 3.75 </span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-lock-outline icon-sm "></i><span class="about-item-name">Password:</span><span class="about-item-detail">**********</span> <a href="" class="about-item-edit">Edit</a></li>
-									<li class="about-items"><i class="mdi mdi-format-align-left icon-sm "></i><span class="about-item-name">Bio:</span><span class="about-item-detail">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto totam, nemo quidem delectus dolores vero porro inventore perferendis minus perspiciatis.</span> <a href="" class="about-item-edit">Edit</a></li>
-									
-                      
-
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-
-
-
-			</div>
-			<!-- content-wrapper ends -->
-			<!-- partial:partials/_footer.html -->
-
-			<?php include'includes/admin_footer.php' ?>
+								<h3 class="text-center card-title font-weight-bold">Register Courses</h3>
+                                <div class="container-fluid">
+                                    <div class="title">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                                            <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">#</th>
+                                                        <th>Course</th>
+                                                        <th>course code</th>
+                                                        <th>units</th>
+                                                        <th class="text-right">Add Course</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        
+                                                        {% for course in  courses%} 
+                                                        <td class="text-center">{{forloop.counter}}</td>
+                                                        <td>{{course.name}}</td>
+                                                        <td>{{course.course_code}}</td>
+                                                        <td>3 units</td>
+                                                        <td class="td-actions text-right">
+                                                            <button type="button" rel="tooltip" class="btn btn-success btn-just-icon btn-sm" data-original-title="" title="">
+                                                                <a href="{% url 'courses:add_course' course.id %}" class='text-white' >Add</a>
+                                                            </button>
+                                                        </td>
+                                                        {% endfor %}
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 			<!-- partial -->
 		</div>
 		<!-- main-panel ends -->
