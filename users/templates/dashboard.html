@@ -233,7 +233,7 @@
 									<div class="profile-designation">Electronics and computer engineering</div>
 									<p class="profile-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.</p>
 									<ul class="profile-info-list">
-										<a href="{% url 'courses:user_courses' %}" class="profile-info-list-item"><i class="mdi mdi-eye"></i>My Courses</a>
+										<a href="{% url 'courses:user_courses' request.user.matric_number %}" class="profile-info-list-item"><i class="mdi mdi-eye"></i>My Courses</a>
 										<a href="{% url 'courses:register_courses' %}" class="profile-info-list-item"><i class="mdi mdi-bookmark-check"></i>Register Courses</a>
 										<a href="{% url 'courses:search' %}" class="profile-info-list-item"><i class="mdi mdi-movie"></i>Add and delete Courses</a>
 										<a href="" class="profile-info-list-item"><i class="mdi mdi-account"></i>About</a>
@@ -273,7 +273,6 @@
 			<!-- content-wrapper ends -->
 			<!-- partial:partials/_footer.html -->
 
-			<?php include'includes/admin_footer.php' ?>
 			<!-- partial -->
 		</div>
 		<!-- main-panel ends -->
